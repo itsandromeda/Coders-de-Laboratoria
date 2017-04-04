@@ -109,6 +109,7 @@ function allImagesDisplay(path, name, prom, i) {
     }
 
     img.setAttribute("src", path);
+    img.setAttribute("alt", name);
     img.setAttribute("id", 'img0' + i);
     parent.classList.add("gallery-item");
     parent.classList.add("show");
