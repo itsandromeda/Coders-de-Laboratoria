@@ -90,7 +90,7 @@ var students = [{
     path: "assets/images/6-lima/rosario-felix.jpg"
 }];
 
-function allImagesDisplay(path, name, prom) {
+function allImagesDisplay(path, name, prom, i) {
     'use strict';
     var display = document.getElementById('coders-display'),
         parent = document.createElement("div"),
@@ -109,6 +109,7 @@ function allImagesDisplay(path, name, prom) {
     }
 
     img.setAttribute("src", path);
+    img.setAttribute("id", 'img0' + i);
     parent.classList.add("gallery-item");
     parent.classList.add("show");
     nameTitle.appendChild(nameNode);
@@ -137,7 +138,7 @@ var allProm = students.map(function (e) {
 var i;
 
 for (i = 0; i < allPhotos.length; i += 1) {
-    allImagesDisplay(allPhotos[i], allNames[i], allProm[i]);
+    allImagesDisplay(allPhotos[i], allNames[i], allProm[i], i);
 }
 
 function display(prom, clss) {
@@ -156,16 +157,38 @@ var chileprom = document.getElementsByClassName('chile-4'),
 select.onchange = function () {
     'use strict';
     if (select.value === "1") {
-        display(chileprom, 'chile-4 show');
-        display(limFifth, 'lima-5 hide');
-        display(limSixth, 'lima-6 hide');
+        display(chileprom, 'chile-4 gallery-item show');
+        display(limFifth, 'lima-5 gallery-item hide');
+        display(limSixth, 'lima-6 gallery-item hide');
     } else if (select.value === "2") {
-        display(chileprom, 'chile-4 hide');
-        display(limFifth, 'lima-5 show');
+        display(chileprom, 'chile-4 gallery-item hide');
+        display(limFifth, 'lima-5 gallery-item show');
         display(limSixth, 'lima-6 gallery-item hide');
     } else if (select.value === "3") {
-        display(chileprom, 'chile-4 hide');
-        display(limFifth, 'lima-5 hide');
-        display(limSixth, 'lima-6 show');
+        display(chileprom, 'chile-4 gallery-item hide');
+        display(limFifth, 'lima-5 gallery-item hide');
+        display(limSixth, 'lima-6 gallery-item show');
     }
 };
+
+var modal = document.getElementById('modal');
+var modalImg = document.getElementById("modal-pic");
+var captionText = document.getElementById("caption");
+
+var modalDisplay = function () {
+    "use strict";
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+};
+
+for (i = 0; i < allPhotos.length; i += 1) {
+    document.getElementById('img0' + i).addEventListener('click', modalDisplay);
+}
+
+var close = document.getElementsByClassName("close")[0];
+
+close.addEventListener('click', function () {
+    "use strict";
+    modal.style.display = "none";
+});
