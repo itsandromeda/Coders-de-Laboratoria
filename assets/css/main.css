@@ -1,18 +1,18 @@
-* {
+    * {
     font-family: sans-serif;
     color: #333333;
 }
 
 body {
     margin: 0;
-    padding: 0;    
+    padding: 0;
     background-color: #F9A91A;
 }
 
 #wrapper {
     width: 940px;
     margin: auto;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 header {
@@ -29,6 +29,15 @@ p {
     font-size: 15px;
     color: #333;
     padding: 30px;
+}
+
+h2 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.gallery-item {
+    padding-bottom: 20px;
 }
 
 footer {
@@ -52,7 +61,7 @@ footer a:hover {
     color: #F9A30B;
 }
 
-.info {    
+.info {
     background-color: white;
     min-width: 320px;
     position: fixed;
@@ -65,7 +74,7 @@ footer a:hover {
 #select {
     margin-left: 30px;
 }
-/**/
+
 #coders-display {
     width: 940px;
     position: relative;
